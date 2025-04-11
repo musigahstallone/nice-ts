@@ -1,0 +1,39 @@
+{
+  "name": "superapp",
+  "version": "1.0.0",
+  "description": "A full-featured Todo and Expense Tracker API built with Node.js, TypeScript, Express, and SQLite.",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "migrate": "ts-node src/database/init.ts",
+    "seed": "ts-node src/database/seed.ts"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "keywords": [
+    "todo",
+    "expense",
+    "tracker",
+    "api",
+    "nodejs",
+    "typescript",
+    "express",
+    "sqlite"
+  ],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 font-sans relative">
+
+  <div class="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">📝 Todo List</h1>
+    <div id="todo-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-md opacity-0 transition-opacity duration-500"></div>
+
+  <!-- Edit Drawer -->
+  <div id="edit-drawer" class="fixed top-0 right-0 w-full sm:w-[400px] h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+    <div class="p-4 border-b flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Edit Todo</h2>
+      <button onclick="closeDrawer()" class="text-gray-500 hover:text-black text-xl">&times;</button>
+    </div>
+    <form id="edit-form" class="flex-1 overflow-auto p-4 flex flex-col gap-4" onsubmit="submitEdit(event)">
+      <input type="hidden" name="id" />
+      <label>
+        <span class="block mb-1 text-sm font-medium">Title</span>
+        <input name="title" required class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"/>
+      </label>
+      <label>
+        <span class="block mb-1 text-sm font-medium">Description</span>
+        <textarea name="description" rows="3" class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"></textarea>
+      </label>
+      <label>
+        <span class="block mb-1 text-sm font-medium">Due Date</span>
+        <input type="date" name="dueDate" class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"/>
+      </label>
+      <div class="mt-auto">
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
